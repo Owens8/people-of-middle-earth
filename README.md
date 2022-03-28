@@ -13,7 +13,7 @@ I want to use advanced search options.
 So that I can filter characters based on their location, age, race, and gender.
 
 ## WireFrame
-![wireframe](./public/wireFrame/wireframe.png)
+![wireframe image](./public/wireFrame/wireframe.png)
 
 ## Available Scripts
 
