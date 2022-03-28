@@ -2,11 +2,18 @@
 
 ## Pitch
 
-TODO
+People of Middle-Earth is a React JS interactive search engine website to search through over 900 characters in the Lord Of the Rings franchise using the [the-one-api](https://the-one-api.dev/). 
+
+As a user:
+I want to input a name in the search bar.
+So that I can search and view the character with that name in the Lord of the Ring universe.
+
+As a user: 
+I want to use advanced search options.
+So that I can filter characters based on their location, age, race, and gender.
 
 ## WireFrame
-
-TODO
+![wireframe](./public/wireFrame/wireframe.png)
 
 ## Available Scripts
 
