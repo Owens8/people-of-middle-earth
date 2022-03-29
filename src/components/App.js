@@ -29,7 +29,7 @@ function App() {
   //   return <Character />;
   // }
 
-  const [character, setCharacter] = useState();
+  const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
     const headers = {
@@ -38,17 +38,13 @@ function App() {
     };
 
     const fetchData = async () => {
-      const rawQuotes = await fetch("https://the-one-api.dev/v2/quote", {
-        headers: headers,
-      });
       const rawCharacters = await fetch(
         "https://the-one-api.dev/v2/character",
         { headers: headers }
       );
-      const characters = await rawCharacters.json(); // All Characters
-      const character = characters.docs[0]; 
-      console.log(character)
-      setCharacter(character.name);
+      const charactersData = await rawCharacters.json(); // All Characters
+      const characters = charactersData.docs;
+      setCharacters(characters)
     };
 
     fetchData();
@@ -58,8 +54,7 @@ function App() {
   return (
     <div className="App">
       <h1>People of Middle-Earth</h1>
-       {character}
-
+      {characters.map((character) => <p key={character._id}>{character.name} {character.race} {character.wikiUrl}}</p>)}
       {/*
         <Search />
         <CharacterContainer />
