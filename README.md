@@ -33,7 +33,6 @@ src/
     ├── App.js
     ├── Search.js
     ├── SearchForm.js
-    ├── AdvancedFilter.js
     ├── CharactersContainer.js
     └── Character.js
 ```
