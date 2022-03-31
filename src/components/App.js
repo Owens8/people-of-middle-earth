@@ -25,18 +25,8 @@ function App() {
     fetchData();
   }, []);
 
-
   function updateSearch(e) {
     setSearchTerm(e.target.value);
-  }
- 
-
-  function Filter() {
-    return (
-      <div className="filter">
-        <h2>This is the Filter Component</h2>
-      </div>
-    );
   }
 
   return (

@@ -5,12 +5,12 @@ function Character({ character }) {
     <div className="character">
       <h3>{character.name}</h3>
       <p>{character.wikiUrl}</p>
-      <p>{character.race}</p>
-      <p>{character.gender}</p>
-      <p>{character.spouse}</p>
-      <p>{character.birth}</p>
-      <p>{character.death}</p>
-      <p>{character.height}</p>
+      <p>Race: {character.race}</p>
+      <p>Gender: {character.gender}</p>
+      <p>Spouse: {character.spouse}</p>
+      <p>Birth Year: {character.birth}</p>
+      <p>Death Year: {character.death}</p>
+      <p>Height: {character.height}</p>
     </div>
   );
 }

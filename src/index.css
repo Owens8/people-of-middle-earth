@@ -13,7 +13,7 @@ code {
 }
 
 .character {
-  font-size: large;
+  outline-style: solid;
 }
 
 .character-container {
