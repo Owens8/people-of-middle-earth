@@ -1,12 +1,5 @@
 # People of Middle-Earth
 
-### TODO:
-- [ ] Task 1
-- [ ] Task 1
-- [ ] Task 1
-- [ ] Task 1
-- [ ] Task 1
-
 ## Pitch
 People of Middle-Earth is a React JS interactive search engine website to search through over 900 characters in the Lord Of the Rings franchise using the [the-one-api](https://the-one-api.dev/). 
 
@@ -32,7 +25,6 @@ src/
 └── components/
     ├── App.js
     ├── Search.js
-    ├── SearchForm.js
     ├── CharactersContainer.js
     └── Character.js
 ```
