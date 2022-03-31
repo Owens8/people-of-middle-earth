@@ -6,6 +6,7 @@ import Search from "./Search";
 function App() {
   const [characters, setCharacters] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [filterBy, setFilterBy] = useState("Human");
 
   useEffect(() => {
     const headers = {
@@ -29,11 +30,20 @@ function App() {
     setSearchTerm(e.target.value);
   }
 
+  const filteredCharacters = characters.filter(
+    (character) => character.race === filterBy
+  );
+
   return (
     <div className="App">
       <h1>People of Middle-Earth</h1>
-      <Search searchTerm={searchTerm} updateSearch={updateSearch} />
-      <CharactersContainer searchTerm={searchTerm} characters={characters} />
+      <Search
+        searchTerm={searchTerm}
+        updateSearch={updateSearch}
+        filterBy={filterBy}
+        onChangeFilter={setFilterBy}
+      />
+      <CharactersContainer searchTerm={searchTerm} characters={filteredCharacters} />
     </div>
   );
 }
