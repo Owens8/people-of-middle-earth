@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+.App {
+  border: 5px outset black;
+}
+
 .character {
   outline-style: solid;
 }
@@ -29,6 +33,7 @@ code {
   border: 5px outset blue;
 }
 
+/* search bar */
 input[type="text"] {
   width: 100%;
   padding: 12px 20px;

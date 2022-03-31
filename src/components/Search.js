@@ -20,6 +20,7 @@ function Search({ searchTerm, updateSearch, filterBy, onChangeFilter }) {
       <label className="select">
         <strong>Filter by race: </strong>
         <select onChange={handleFilterChange} value={filterBy}>
+          <option value="Select Race" disabled>Select Race</option>
           <option value="Human">Human</option>
           <option value="Ainur">Ainur</option>
           <option value="Balrog">Balrog</option>
