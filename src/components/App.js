@@ -1,35 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
+// import CharactersContainer from "./CharactersContainer";
+// import Search from "./Search";
+
 function App() {
-  // function Search() {
-  //   // TODO
-
-  //   function SearchForm() {
-  //     // TODO
-  //   }
-
-  //   function Filter() {
-  //     // TODO
-  //   }
-  //   return (
-  //     <>
-  //       <SearchForm />
-  //       <Filter />
-  //     </>
-  //   );
-  // }
-
-  // function CharacterContainer() {
-  //   //TODO
-
-  //   function Character() {
-  //     //TODO
-  //   }
-
-  //   return <Character />;
-  // }
-
   const [characters, setCharacters] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const headers = {
@@ -42,25 +18,77 @@ function App() {
         "https://the-one-api.dev/v2/character",
         { headers: headers }
       );
-      const charactersData = await rawCharacters.json(); // All Characters
+      const charactersData = await rawCharacters.json();
       const characters = charactersData.docs;
-      setCharacters(characters)
+      setCharacters(characters);
     };
-
     fetchData();
   }, []);
 
+  function Character({ character }) {
+    return (
+      <div className="character">
+        <h3>{character.name}</h3>
+        <p>{character.wikiUrl}</p>
+        <p>{character.race}</p>
+        <p>{character.gender}</p>
+      </div>
+    );
+  }
+
+  function CharactersContainer({ characters }) {
+    return (
+      <div className="character-container">
+        {characters.filter((val) => {
+          if (searchTerm == "") {
+            return val;
+          } else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+            return val;
+          }
+
+        }).map((character) => (
+          <Character key={character._id} character={character} />
+        ))}
+      </div>
+    );
+  }
+
+  function Search() {
+    const { name } = setSearchTerm;
+
+    function updateSearch(e) {
+      setSearchTerm(e.target.value);
+    }
+
+    return (
+      <div className="search-container">
+        <input
+          type="text"
+          name="name"
+          value={searchTerm}
+          onChange={updateSearch}
+          placeholder="Please enter the name"
+        />
+        {/* <input type="submit" value="Submit" /> */}
+        <h1>This is the Search Components</h1>
+        <Filter />
+      </div>
+    );
+  }
+
+  function Filter() {
+    return (
+      <div className="filter">
+        <h2>This is the Filter Component</h2>
+      </div>
+    );
+  }
 
   return (
     <div className="App">
       <h1>People of Middle-Earth</h1>
-      {characters.map((character) => <p key={character._id}>{character.name} {character.race} {character.wikiUrl}}</p>)}
-      {/*
-        <Search />
-        <CharacterContainer />
-      */}
-
-
+      <Search />
+      <CharactersContainer characters={characters} />
     </div>
   );
 }
